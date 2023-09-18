@@ -9,29 +9,10 @@
 			"cols": [
 				{
 					"id": "23b72e48-a666-4a89-925a-95d118a55228",
-					"name": "id",
-					"datatype": "integer",
-					"param": "",
-					"pk": true,
-					"nn": true,
-					"list": false,
-					"comment": "",
-					"defaultvalue": "",
-					"data": "",
-					"after": "",
-					"collation": null,
-					"pg": {
-						"generatedIdentity": "no",
-						"generated": ""
-					},
-					"estimatedSize": ""
-				},
-				{
-					"id": "d13e5305-84f9-49c0-933b-d9b5ec61df02",
 					"name": "ssn",
 					"datatype": "integer",
 					"param": "",
-					"pk": false,
+					"pk": true,
 					"nn": true,
 					"list": false,
 					"comment": "",
@@ -183,7 +164,7 @@
 					"id": "e4425e3c-5842-46f9-873e-768c3d67ca84",
 					"name": "sex",
 					"datatype": "char",
-					"param": "",
+					"param": "M,W,X",
 					"pk": false,
 					"nn": false,
 					"list": false,
@@ -267,29 +248,10 @@
 			"cols": [
 				{
 					"id": "afe4c8ef-c543-4cbf-8b89-4c7fbc9533a4",
-					"name": "id",
-					"datatype": "integer",
-					"param": "",
-					"pk": true,
-					"nn": true,
-					"list": false,
-					"comment": "",
-					"defaultvalue": "",
-					"data": "",
-					"after": "",
-					"collation": null,
-					"pg": {
-						"generatedIdentity": "no",
-						"generated": ""
-					},
-					"estimatedSize": ""
-				},
-				{
-					"id": "1f13e830-1ca0-4dfd-9872-0fd9b70db586",
 					"name": "dnumber",
 					"datatype": "integer",
 					"param": "",
-					"pk": false,
+					"pk": true,
 					"nn": true,
 					"list": false,
 					"comment": "",
@@ -389,30 +351,11 @@
 			"estimatedSize": "",
 			"cols": [
 				{
-					"id": "413db77f-9650-4a59-b43a-fa8724b12aff",
-					"name": "id",
-					"datatype": "integer",
-					"param": "",
-					"pk": true,
-					"nn": true,
-					"list": false,
-					"comment": "",
-					"defaultvalue": "",
-					"data": "",
-					"after": "",
-					"collation": null,
-					"pg": {
-						"generatedIdentity": "no",
-						"generated": ""
-					},
-					"estimatedSize": ""
-				},
-				{
 					"id": "a00d7f8d-0a55-44ec-b590-f1a3453fc5d1",
 					"name": "dlocation",
 					"datatype": "integer",
 					"param": "",
-					"pk": false,
+					"pk": true,
 					"nn": true,
 					"list": false,
 					"comment": "",
@@ -438,8 +381,8 @@
 					"isPk": true,
 					"cols": [
 						{
-							"id": "4c37daff-3ed7-44cb-97e8-2d9ddcc9fa5c",
-							"colid": "413db77f-9650-4a59-b43a-fa8724b12aff"
+							"id": "5717a52b-371d-498e-9510-0d1077523694",
+							"colid": "a00d7f8d-0a55-44ec-b590-f1a3453fc5d1"
 						}
 					]
 				}
@@ -470,25 +413,6 @@
 			"estimatedSize": "",
 			"cols": [
 				{
-					"id": "7e120172-9526-4cd6-b439-d7eadcd54d4f",
-					"name": "id",
-					"datatype": "integer",
-					"param": "",
-					"pk": true,
-					"nn": true,
-					"list": false,
-					"comment": "",
-					"defaultvalue": "",
-					"data": "",
-					"after": "",
-					"collation": null,
-					"pg": {
-						"generatedIdentity": "no",
-						"generated": ""
-					},
-					"estimatedSize": ""
-				},
-				{
 					"id": "5ea8ae71-fcf9-46de-b9af-88168ab6fd5d",
 					"name": "dnumber",
 					"datatype": "integer",
@@ -509,8 +433,8 @@
 					"fk": true
 				},
 				{
-					"id": "bce6cece-13e6-4f71-9b77-a237a053cea2",
-					"name": "dlocation",
+					"id": "f11cfd6c-3af2-422a-9b96-5b02d5b611cb",
+					"name": "LOCATIONS_dlocation",
 					"datatype": "integer",
 					"param": "",
 					"pk": false,
@@ -539,12 +463,7 @@
 					"id": "f1058258-c6ed-4a10-951e-285eeb5ea3c2",
 					"name": "DEPARTMENT_LOCATIONS_pkey",
 					"isPk": true,
-					"cols": [
-						{
-							"id": "33fd2ac6-9d31-4102-9ce9-c2262f20e401",
-							"colid": "7e120172-9526-4cd6-b439-d7eadcd54d4f"
-						}
-					]
+					"cols": []
 				}
 			],
 			"indexes": [],
@@ -573,30 +492,11 @@
 			"estimatedSize": "",
 			"cols": [
 				{
-					"id": "d5cc15ab-f7f4-4dcf-aa19-b995576b72d1",
-					"name": "id",
-					"datatype": "integer",
-					"param": "",
-					"pk": true,
-					"nn": true,
-					"list": false,
-					"comment": "",
-					"defaultvalue": "",
-					"data": "",
-					"after": "",
-					"collation": null,
-					"pg": {
-						"generatedIdentity": "no",
-						"generated": ""
-					},
-					"estimatedSize": ""
-				},
-				{
 					"id": "0f48f916-25a0-4e62-9cac-ef011ba6e4a7",
 					"name": "pnumber",
 					"datatype": "integer",
 					"param": "",
-					"pk": false,
+					"pk": true,
 					"nn": true,
 					"list": false,
 					"comment": "",
@@ -681,8 +581,8 @@
 					"isPk": true,
 					"cols": [
 						{
-							"id": "0581908a-e6e2-49de-a80e-166e54a58ae8",
-							"colid": "d5cc15ab-f7f4-4dcf-aa19-b995576b72d1"
+							"id": "acb1fcb8-4d63-4823-a9d5-7d035c408e6a",
+							"colid": "0f48f916-25a0-4e62-9cac-ef011ba6e4a7"
 						}
 					]
 				}
@@ -714,29 +614,10 @@
 			"cols": [
 				{
 					"id": "426f250c-417a-497b-bcb7-cc0f50d92eec",
-					"name": "id",
-					"datatype": "integer",
+					"name": "dependentname",
+					"datatype": "text",
 					"param": "",
 					"pk": true,
-					"nn": true,
-					"list": false,
-					"comment": "",
-					"defaultvalue": "",
-					"data": "",
-					"after": "",
-					"collation": null,
-					"pg": {
-						"generatedIdentity": "no",
-						"generated": ""
-					},
-					"estimatedSize": ""
-				},
-				{
-					"id": "bc936165-11dc-4bc1-a629-120177bece20",
-					"name": "dependentname",
-					"datatype": "integer",
-					"param": "",
-					"pk": false,
 					"nn": true,
 					"list": false,
 					"comment": "",
@@ -871,25 +752,6 @@
 			"estimatedSize": "",
 			"cols": [
 				{
-					"id": "e4e08f5c-4a13-496d-97f2-16c85551a89c",
-					"name": "id",
-					"datatype": "integer",
-					"param": "",
-					"pk": true,
-					"nn": true,
-					"list": false,
-					"comment": "",
-					"defaultvalue": "",
-					"data": "",
-					"after": "",
-					"collation": null,
-					"pg": {
-						"generatedIdentity": "no",
-						"generated": ""
-					},
-					"estimatedSize": ""
-				},
-				{
 					"id": "93913a18-656f-49a7-b7c1-9d8b02788e2f",
 					"name": "ssn",
 					"datatype": "integer",
@@ -910,8 +772,8 @@
 					"fk": true
 				},
 				{
-					"id": "2669d43f-a806-4352-88cb-f3d4390b4675",
-					"name": "pnumber",
+					"id": "e27fe142-6c8c-45d5-9976-d209ce8d4e91",
+					"name": "PROJECT_pnumber",
 					"datatype": "integer",
 					"param": "",
 					"pk": false,
@@ -959,12 +821,7 @@
 					"id": "28cbfb72-8232-406a-8b2f-201207b7ab58",
 					"name": "EMPLOYEE_PROJECT_pkey",
 					"isPk": true,
-					"cols": [
-						{
-							"id": "c20e11fa-fdac-475a-9629-fe4563ccebf2",
-							"colid": "e4e08f5c-4a13-496d-97f2-16c85551a89c"
-						}
-					]
+					"cols": []
 				}
 			],
 			"indexes": [],
@@ -1094,7 +951,7 @@
 		"e3f799f6-6087-44bd-9f2e-21f2d6d91c9f": {
 			"id": "e3f799f6-6087-44bd-9f2e-21f2d6d91c9f",
 			"visible": true,
-			"name": "DEPARTMENT_LOCATIONS_dlocation_fkey",
+			"name": "DEPARTMENT_LOCATIONS_LOCATIONS_dlocation_fkey",
 			"desc": "",
 			"type": "identifying",
 			"parent_key": "ffe315a4-ed84-48d6-acb7-a471464e016d",
@@ -1108,9 +965,9 @@
 			"c_cch": "",
 			"cols": [
 				{
-					"id": "0891a50b-9af7-4034-a898-dc6909bb6f2d",
-					"parentcol": "413db77f-9650-4a59-b43a-fa8724b12aff",
-					"childcol": "bce6cece-13e6-4f71-9b77-a237a053cea2"
+					"id": "bcea2891-a2b6-4daf-baba-14744fc5c706",
+					"parentcol": "a00d7f8d-0a55-44ec-b590-f1a3453fc5d1",
+					"childcol": "f11cfd6c-3af2-422a-9b96-5b02d5b611cb"
 				}
 			],
 			"generate": true,
@@ -1198,7 +1055,7 @@
 		"ea79728a-aabe-4019-a665-572de8643d50": {
 			"id": "ea79728a-aabe-4019-a665-572de8643d50",
 			"visible": true,
-			"name": "EMPLOYEE_PROJECT_pnumber_fkey",
+			"name": "EMPLOYEE_PROJECT_PROJECT_pnumber_fkey",
 			"desc": "",
 			"type": "identifying",
 			"parent_key": "24195f10-2816-4edb-b2c8-be8df6367947",
@@ -1212,9 +1069,9 @@
 			"c_cch": "",
 			"cols": [
 				{
-					"id": "82dec959-8b4e-4a91-8f2e-f6b677e5ba9d",
-					"parentcol": "d5cc15ab-f7f4-4dcf-aa19-b995576b72d1",
-					"childcol": "2669d43f-a806-4352-88cb-f3d4390b4675"
+					"id": "71469cb9-60f8-4972-ae93-1485b3218354",
+					"parentcol": "0f48f916-25a0-4e62-9cac-ef011ba6e4a7",
+					"childcol": "e27fe142-6c8c-45d5-9976-d209ce8d4e91"
 				}
 			],
 			"generate": true,
@@ -1277,7 +1134,7 @@
 			"indexes": true,
 			"relations": true
 		},
-		"lastSaved": "Mon Sep 18 2023 09:47:08 GMT+0900 (Korean Standard Time)"
+		"lastSaved": "Mon Sep 18 2023 09:51:32 GMT+0900 (Korean Standard Time)"
 	},
 	"otherObjects": {},
 	"diagrams": {
@@ -1297,7 +1154,7 @@
 					"referencedItemId": "21a52a47-8cad-4923-9aae-a30fd15aa346",
 					"x": 292,
 					"y": 88,
-					"gHeight": 225,
+					"gHeight": 207,
 					"gWidth": 212,
 					"color": "#ffffff",
 					"background": "#03a9f4",
@@ -1309,7 +1166,7 @@
 					"referencedItemId": "8b3f8ff4-be69-45a1-965e-2959c8f6094b",
 					"x": 611,
 					"y": 86,
-					"gHeight": 99,
+					"gHeight": 81,
 					"gWidth": 190,
 					"color": "#ffffff",
 					"background": "#03a9f4",
@@ -1321,7 +1178,7 @@
 					"referencedItemId": "ddb317f2-56ae-42f5-bcfe-630c16c23f79",
 					"x": 863,
 					"y": 89,
-					"gHeight": 63,
+					"gHeight": 45,
 					"gWidth": 190,
 					"color": "#ffffff",
 					"background": "#03a9f4",
@@ -1333,8 +1190,8 @@
 					"referencedItemId": "8df9fd57-7a00-4edc-965a-c42b6b6708a9",
 					"x": 864,
 					"y": 238,
-					"gHeight": 81,
-					"gWidth": 224,
+					"gHeight": 63,
+					"gWidth": 261,
 					"color": "#ffffff",
 					"background": "#03a9f4",
 					"resized": false,
@@ -1345,7 +1202,7 @@
 					"referencedItemId": "329cff1e-b26e-41fa-a3d2-06d5c6099300",
 					"x": 618,
 					"y": 315,
-					"gHeight": 117,
+					"gHeight": 99,
 					"gWidth": 190,
 					"color": "#ffffff",
 					"background": "#03a9f4",
@@ -1357,8 +1214,8 @@
 					"referencedItemId": "1e368839-6d8b-47c6-9886-6d1c280e6fba",
 					"x": 292,
 					"y": 422,
-					"gHeight": 135,
-					"gWidth": 231,
+					"gHeight": 117,
+					"gWidth": 214,
 					"color": "#ffffff",
 					"background": "#03a9f4",
 					"resized": false,
@@ -1369,8 +1226,8 @@
 					"referencedItemId": "10b63813-adba-4e66-ad5f-089313c5a765",
 					"x": 625,
 					"y": 488,
-					"gHeight": 99,
-					"gWidth": 190,
+					"gHeight": 81,
+					"gWidth": 243,
 					"color": "#ffffff",
 					"background": "#03a9f4",
 					"resized": false,
