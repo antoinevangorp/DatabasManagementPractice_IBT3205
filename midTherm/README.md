@@ -1,4 +1,4 @@
-# SQLite Database Initialization and Data Insertion
+# MidTherm
 
 This Python script is used to create and initialize a SQLite database named 'ITS.db'. It defines the structure of multiple tables related to an Information Technology Services (ITS) database schema and inserts sample data into those tables. Here's a detailed breakdown of what this script does:
 
