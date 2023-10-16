@@ -1,121 +1,107 @@
 SET check_function_bodies = false
 ;
 
-CREATE TABLE "DEPARTEMENT"(
-  dnumber integer NOT NULL,
-  dname integer,
-  mgrssn integer NOT NULL,
-  CONSTRAINT "DEPARTEMENT_pkey" PRIMARY KEY(dnumber)
+CREATE TABLE "Countries"(
+"CountryCode" char(2) NOT NULL, "CountryName" char(50) NOT NULL,
+  CONSTRAINT "Countries_pkey" PRIMARY KEY("CountryCode")
 );
 
-CREATE TABLE "DEPARTMENT_LOCATIONS"
-  (dnumber integer NOT NULL, "LOCATIONS_dlocation" integer NOT NULL);
-
-CREATE TABLE "DEPENDENT"(
-  dependentname text NOT NULL,
-  essn integer NOT NULL,
-  sex char,
-  bdate timestamp,
-  relationship text,
-  CONSTRAINT "DEPENDENT_pkey" PRIMARY KEY(dependentname)
+CREATE TABLE "DriverBookings"(
+  "BookingID" integer NOT NULL,
+  "OfficialID" integer NOT NULL,
+  "DriverID" integer NOT NULL,
+  "VehicleID" text NOT NULL,
+  "PickupLocation" varchar(100),
+  "DropOffLocation" varchar(100),
+  "LocationType" text CHECK("LocationType" IN ('Hotel', 'Airport', 'Aquatic Center')),
+  "BookingReference" varchar(20),
+  "StartDateTime" time NOT NULL,
+  "EndDateTime" time NOT NULL,
+  "StartOdometer" integer NOT NULL,
+  "EndOdometer" integer NOT NULL,
+  CONSTRAINT "DriverBookings_pkey" PRIMARY KEY("BookingID")
 );
 
-CREATE TABLE "DriversAssignments"(
-  "AssignmentID" integer NOT NULL,
-  "AssignmentData" date,
-  "EMPLOYEE_ssn" integer NOT NULL,
-  "Vehicles_VehicleID" integer NOT NULL,
-  CONSTRAINT "DriversAssignments_pkey" PRIMARY KEY("AssignmentID")
+CREATE TABLE "Drivers"(
+  "DriverID" integer NOT NULL,
+  "Name" varchar(100) NOT NULL,
+  "LicenseNumber" char(18) NOT NULL,
+  "ClearanceLevel" integer CHECK(ClearanceLevel BETWEEN 1 AND 4),
+  "FATLLevel" integer CHECK(ClearanceLevel BETWEEN 1 AND 10),
+  "FATLQualificationDate" date,
+  "STLVTLevel" integer CHECK(ClearanceLevel BETWEEN 1 AND 5),
+  "STLVTQualificationDate" date,
+  "CertifyingAuthority" varchar(100),
+  CONSTRAINT "Drivers_pkey" PRIMARY KEY("DriverID")
 );
 
-CREATE TABLE "EMPLOYEE"(
-  ssn integer NOT NULL,
-  "superssn (FK)" integer NOT NULL,
-  fname text,
-  minit integer,
-  lname text,
-  address text,
-  bdate timestamp,
-  salary float8,
-  sex char(M,W,X),
-  dno integer NOT NULL,
-  CONSTRAINT "EMPLOYEE_pkey" PRIMARY KEY(ssn)
+CREATE TABLE "GameOfficials"(
+  "OfficialID" integer NOT NULL,
+  "CountryCode" char(2) NOT NULL,
+  "IncheonCityID" char(8) NOT NULL,
+  "FirstName" varchar(50) NOT NULL,
+  "LastName" varchar(50) NOT NULL,
+  "Role" varchar(50) NOT NULL,
+  "PreferredLanguage" char(2) NOT NULL,
+  CONSTRAINT "GameOfficials_pkey" PRIMARY KEY("OfficialID")
 );
 
-CREATE TABLE "LOCATIONS"
-  (dlocation integer NOT NULL, CONSTRAINT "LOCATIONS_pkey" PRIMARY KEY(dlocation))
-  ;
-
-CREATE TABLE "TransportationsAssignments"(
-  "AssignmentID" integer NOT NULL,
-  "LocationDepart" integer NOT NULL,
-  "LocationEnd" integer NOT NULL,
-  CONSTRAINT "TransportationsAssignments_pkey" PRIMARY KEY("AssignmentID")
+CREATE TABLE "MaintenanceRepairs"(
+  "ActionID" integer NOT NULL,
+  "Vehicles_VehicleID" text NOT NULL,
+  "ActionType" char CHECK("ActionType" IN ('M', 'R')) NOT NULL,
+  "Odometer" integer NOT NULL,
+  "Cost" integer(10, 2) NOT NULL,
+  "Description" text,
+  "ActionDate" date NOT NULL,
+  CONSTRAINT "MaintenanceRepairs_pkey" PRIMARY KEY("ActionID")
 );
+
+CREATE TABLE "SpokenLanguages"(
+  "LanguageID" integer NOT NULL,
+  "CountryCode" char(2) NOT NULL,
+  "LanguageCode" integer NOT NULL,
+  CONSTRAINT "SpokenLanguages_pkey" PRIMARY KEY("LanguageID")
+);
+
+CREATE TABLE "VehicleAvailability"
+  ("VehicleID" text NOT NULL, "IsAvailable" boolean NOT NULL);
 
 CREATE TABLE "Vehicles"(
-  "VehicleID" integer NOT NULL,
-  "CurentLocation" integer,
-  "LicensePlate" text NOT NULL,
+  "VehicleID" text NOT NULL,
+  "RegistrationID" varchar(20) NOT NULL,
+  "Manufacturer" varchar(50) NOT NULL,
+  "Model" varchar(50) NOT NULL,
+  "Color" varchar(50) NOT NULL,
+  "CurrentOdometer" integer NOT NULL,
+  "PassengerCapacity" integer NOT NULL,
   CONSTRAINT "Vehicles_pkey" PRIMARY KEY("VehicleID")
 );
 
-CREATE TABLE "VehiclesAssignments"(
-  "AssignmentID" integer NOT NULL,
-  "AssignmentData" date,
-  "ServicID" integer NOT NULL,
-  "Vehicles_VehicleID" integer NOT NULL,
-  CONSTRAINT "VehiclesAssignments_pkey" PRIMARY KEY("AssignmentID")
-);
-
-ALTER TABLE "EMPLOYEE"
-  ADD CONSTRAINT "EMPLOYEE_superssn (FK)_fkey"
-    FOREIGN KEY ("superssn (FK)") REFERENCES "DEPARTEMENT" (dnumber);
-
-ALTER TABLE "EMPLOYEE"
-  ADD CONSTRAINT ssn_fkey FOREIGN KEY (dno) REFERENCES "EMPLOYEE" (ssn);
-
-ALTER TABLE "DEPARTEMENT"
-  ADD CONSTRAINT "DEPARTEMENT_mgrssn_fkey"
-    FOREIGN KEY (mgrssn) REFERENCES "EMPLOYEE" (ssn);
-
-ALTER TABLE "DEPARTMENT_LOCATIONS"
-  ADD CONSTRAINT "DEPARTMENT_LOCATIONS_dnumber_fkey"
-    FOREIGN KEY (dnumber) REFERENCES "DEPARTEMENT" (dnumber);
-
-ALTER TABLE "DEPARTMENT_LOCATIONS"
-  ADD CONSTRAINT "DEPARTMENT_LOCATIONS_LOCATIONS_dlocation_fkey"
-    FOREIGN KEY ("LOCATIONS_dlocation") REFERENCES "LOCATIONS" (dlocation);
-
-ALTER TABLE "DEPENDENT"
-  ADD CONSTRAINT "DEPENDENT_essn_fkey"
-    FOREIGN KEY (essn) REFERENCES "EMPLOYEE" (ssn);
-
-ALTER TABLE "TransportationsAssignments"
-  ADD CONSTRAINT "TransportationsAssignments_LocationDepart_fkey"
-    FOREIGN KEY ("LocationDepart") REFERENCES "LOCATIONS" (dlocation);
-
-ALTER TABLE "TransportationsAssignments"
-  ADD CONSTRAINT "TrensportationsAssignments_LOCATIONS_dlocation_fkey1"
-    FOREIGN KEY ("LocationEnd") REFERENCES "LOCATIONS" (dlocation);
-
-ALTER TABLE "Vehicles"
-  ADD CONSTRAINT "Vehicles_CurentLocation_fkey"
-    FOREIGN KEY ("CurentLocation") REFERENCES "LOCATIONS" (dlocation);
-
-ALTER TABLE "VehiclesAssignments"
-  ADD CONSTRAINT "VehiclesAssignments_ServicID_fkey"
-    FOREIGN KEY ("ServicID")
-      REFERENCES "TransportationsAssignments" ("AssignmentID");
-
-ALTER TABLE "VehiclesAssignments"
-  ADD CONSTRAINT "VehiclesAssignments_Vehicles_VehicleID_fkey"
+ALTER TABLE "MaintenanceRepairs"
+  ADD CONSTRAINT "MaintenanceRepairs_Vehicles_VehicleID_fkey"
     FOREIGN KEY ("Vehicles_VehicleID") REFERENCES "Vehicles" ("VehicleID");
 
-ALTER TABLE "DriversAssignments"
-  ADD CONSTRAINT "DriversAssignments_EMPLOYEE_ssn_fkey"
-    FOREIGN KEY ("EMPLOYEE_ssn") REFERENCES "EMPLOYEE" (ssn);
+ALTER TABLE "SpokenLanguages"
+  ADD CONSTRAINT "SpokenLanguages_CountryCode_fkey"
+    FOREIGN KEY ("CountryCode") REFERENCES "Countries" ("CountryCode");
 
-ALTER TABLE "DriversAssignments"
-  ADD CONSTRAINT "DriversAssignments_Vehicles_VehicleID_fkey"
-    FOREIGN KEY ("Vehicles_VehicleID") REFERENCES "Vehicles" ("VehicleID");
+ALTER TABLE "GameOfficials"
+  ADD CONSTRAINT "GameOfficials_CountryCode_fkey"
+    FOREIGN KEY ("CountryCode") REFERENCES "Countries" ("CountryCode");
+
+ALTER TABLE "DriverBookings"
+  ADD CONSTRAINT "DriverBookings_OfficialID_fkey"
+    FOREIGN KEY ("OfficialID") REFERENCES "GameOfficials" ("OfficialID");
+
+ALTER TABLE "DriverBookings"
+  ADD CONSTRAINT "DriverBookings_DriverID_fkey"
+    FOREIGN KEY ("DriverID") REFERENCES "Drivers" ("DriverID");
+
+ALTER TABLE "DriverBookings"
+  ADD CONSTRAINT "DriverBookings_VehicleID_fkey"
+    FOREIGN KEY ("VehicleID") REFERENCES "Vehicles" ("VehicleID");
+
+ALTER TABLE "VehicleAvailability"
+  ADD CONSTRAINT "VehicleAvailability_VehicleID_fkey"
+    FOREIGN KEY ("VehicleID") REFERENCES "Vehicles" ("VehicleID");
