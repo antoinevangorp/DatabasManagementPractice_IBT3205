@@ -139,7 +139,7 @@ VALUES (1, '2023-10-01', 123456789, 1),
 # Sample data for "EMPLOYEE" table
 insert_employee_data = '''
 INSERT INTO "EMPLOYEE" (ssn, "superssn (FK)", fname, minit, lname, address, bdate, salary, sex, dno)
-VALUES (123456789, NULL, 'Alice',  'M', 'Smith', '123 Main St', '1980-03-10', 50000.00, 'F', 1),
+VALUES (123456789, 987654321, 'Alice',  'M', 'Smith', '123 Main St', '1980-03-10', 50000.00, 'F', 1),
        (987654321, 123456789, 'Bob',  'A', 'Johnson', '456 Oak St', '1975-12-05', 60000.00, 'M', 2);
 '''
 
